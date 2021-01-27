@@ -1,34 +1,28 @@
-import React, { Component } from 'react'
-import Table from './Table'
-import Form from './Form'
+import React, { useState } from 'react';
+import UserTable from './Table';
+const App = () => {
 
-class App extends Component {
-  state={
-    characters : [ ]
-  }
-  removeCharecter=(index)=>{
+  const usersData = [
+    { id: 1, name: "rokaya", username: "rokaya@yahoo" },
+    { id: 2, name: "maria", username: "marya@yahoo" },
+    { id: 3, name: "nada", username: "nada@yahoo" }
+  ]
+  const [users, setUsers] = useState(usersData)
 
-    this.setState({
-      characters: this.state.characters.filter((character,i)=>{
-        return i !== index
-      })
-    })
-
-  }
-  handleSubmit = (character) => {
-    this.setState({characters: [...this.state.characters, character]})
-  }
-  render() {
-    return (
-      <div className="container">
-        <h1>React toturial Practice</h1>
-        <p>Add a character with a name and a job to the table.</p>
-        <Table  characterData= {this.state.characters} 
-                removeCharecter={this.removeCharecter}
-        />
-        <Form handleSubmit={this.handleSubmit}/>
+  return (
+    <div className="container">
+      <h1> CRUD App with Hooks</h1>
+      <div className="flex-row">
+        <div className="flex-large">
+          <h2>Add user</h2>
+        </div>
+        <div className="flex-large">
+          <h2>View users</h2>
+          <UserTable users={users} />
+        </div>
       </div>
-    )
-  }
+    </div>
+  );
 }
+
 export default App;

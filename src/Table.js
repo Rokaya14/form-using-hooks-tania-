@@ -1,48 +1,40 @@
-import React, { Component } from 'react'
+import React from 'react';
+const UserTable = (props) => {
 
 
-const TableHeader = () => {
+
   return (
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Job</th>
-        <th>Remove</th>
-      </tr>
-    </thead>
-  )
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        {props.users.length > 0 ? (
+          props.users.map((user) => {
+            return (<tr key={user.id}>
+              <td>{user.name}</td>
+              <td>{user.username}</td>
+              <td>
+                <button className="button">Edit</button>
+                <button className="button muted-button">Delete</button>
+              </td>
+
+            </tr>)
+          })
+        ) : (
+            <tr>
+              <td colSpan={3}>No users</td>
+            </tr>
+          )}
+
+      </tbody >
+    </table >
+  );
 }
 
-const TableBody = (props) => {
-  const rows = props.characterData.map((row, index) => {
-    return (
-      <tr key={index}>
-        <td>{row.name}</td>
-        <td>{row.job}</td>
-        <td>
-          <button onClick={() => props.removeCharacter(index)}>Delete</button>
-        </td>
-      </tr>
-    )
-  })
-  return (
-    <tbody>
-      {rows}
-    </tbody>
-  )
-}
-class Table extends Component {
-  render() {
-
-    return (
-      <table>
-        <TableHeader />
-        <TableBody characterData={this.props.characterData}
-          removeCharacter={this.props.removeCharecter} />
-
-      </table>
-    )
-  }
-}
-
-export default Table
+export default UserTable;
