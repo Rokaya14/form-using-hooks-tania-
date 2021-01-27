@@ -842,8 +842,8 @@ a.accent-button:hover,
 a.accent-button:focus,
 a.accent-button:active {
   color: #ffffff;
-  border: 1px solid #29de7d;
-  background: #29de7d;
+  border: 1px solid #23b165;
+  background:  #23b165;
 }
 
 .muted-button,
@@ -860,6 +860,17 @@ a.muted-button:active {
   color: #4e4e4e;
   border: 1px solid #818181;
   background: transparent;
+}
+.red-button{
+   background-color: rgb(218, 4, 4);
+  border: 1px solid  rgb(218, 4, 4);
+}
+.red-button:hover,.red-button:focus,.red-button:active,
+a.red-button:hover,
+a.red-button:focus,
+a.red-button:active{
+  background-color: rgb(177, 6, 6);
+  border: 1px solid  rgb(177, 6, 6);
 }
 
 .round-button,
@@ -1025,6 +1036,9 @@ caption {
 
 .contain-table {
   overflow-x: auto;
+}
+.m-r-4{
+  margin-right: 40px;
 }
 
 @media (min-width: 600px) {
