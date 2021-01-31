@@ -16,20 +16,26 @@ const UserTable = (props) => {
 
         {props.users.length > 0 ? (
           props.users.map((user) => {
-            return (<tr key={user.id}>
-              <td>{user.name}</td>
-              <td>{user.username}</td>
-              <td>
-                <button className="button m-r-4">Edit</button>
-                <button
-                  className="button red-button"
-                  onClick={() => props.deleteUser(user.id)}
-                >
-                  Delete
+            return (
+              <tr key={user.id}>
+                <td>{user.name}</td>
+                <td>{user.username}</td>
+                <td>
+                  <button
+                    className="button m-r-4"
+                    onClick={() => props.editRow(user)}
+                  >
+                    Edit
                 </button>
-              </td>
+                  <button
+                    className="button red-button"
+                    onClick={() => props.deleteUser(user.id)}
+                  >
+                    Delete
+                </button>
+                </td>
 
-            </tr>)
+              </tr>)
           })
         ) : (
             <tr>

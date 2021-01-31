@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 const AddUserForm = (props) => {
+
   const initialFormState = { id: null, name: '', username: '' }
   const [user, setUser] = useState(initialFormState)
   //console.log(user.name, "*****", user.username);
+
   const handelInputChange = (event) => {
     const { name, value } = event.target
     setUser({ ...user, [name]: value })
@@ -18,7 +20,7 @@ const AddUserForm = (props) => {
 
   }
   return (
-    <form onSubmit={handelSubmit}>
+    <form >
       <label>Name</label>
       <input
         type="text"
@@ -35,7 +37,10 @@ const AddUserForm = (props) => {
       />
       <button
         className="button accent-button"
-      >Add new user</button>
+        onClick={handelSubmit}
+      >
+        Add new user
+      </button>
     </form>
   );
 }
